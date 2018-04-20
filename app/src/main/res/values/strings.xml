@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">zhangzhuTestApplicaiton</string>
+    <string name="step1string">步骤一：点击首页底部“发现”按钮</string>
+    <string name="step2string">步骤二：点击页面顶部“赚钱”标签</string>
+</resources>

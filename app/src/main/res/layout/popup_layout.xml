@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/corner_round_bg">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_first"
+        android:src="@mipmap/apple_pic"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/text_first_linear"
+        android:layout_width="168dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="10dp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textColor="#000000"
+        android:text="我来试试我来试试我来试试看看行不行行吧吧吧吧吧吧吧"/>
+
+</RelativeLayout>

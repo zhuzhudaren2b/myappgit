@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="#B3000000">
+
+    <View
+        android:id="@+id/backgroundView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"/>
+
+    <RelativeLayout
+        android:id="@+id/firstStepSpace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/discoveryTxt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/guide_discovery_icon" />
+
+        <TextView
+            android:id="@+id/guideArrow"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="150dp"
+            android:background="@mipmap/guide_arrow_down" />
+
+
+        <TextView
+            android:id="@+id/step1Txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="步骤一：点击首页底部“发现”按钮"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@+id/guideArrow"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="赚钱中心搬家啦～"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@+id/step1Txt"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/secondStepSpace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/centerTxt"
+            android:layout_width="1dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/profitTxt"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@+id/centerTxt"
+            android:background="@mipmap/guide_profit_icon" />
+
+        <TextView
+            android:id="@+id/guideArrow2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"
+            android:background="@mipmap/guide_arrow_up" />
+
+        <TextView
+            android:id="@+id/step2Txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="步骤二：点击页面顶部“赚钱”标签"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/guideArrow2"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/thirdStepSpace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/goldView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/centerGoldText"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/guide_gold"/>
+
+        <TextView
+            android:id="@+id/centerGoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="赚钱中心，每天都有钱赚！"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="42dp"
+            android:layout_below="@+id/centerGoldText"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="开始赚钱"
+            android:textSize="15sp"
+            android:background="@mipmap/guide_start_profit"
+
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/closeGuide"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#1A03a9f4"
+        android:gravity="center"
+        android:text="关闭"
+        android:textSize="16dp" />
+
+</RelativeLayout>

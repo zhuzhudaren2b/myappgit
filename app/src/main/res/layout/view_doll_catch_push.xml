@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/doll_catch_push">
+
+        <TextView
+            android:id="@+id/catch_content"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="54dp"
+            android:text=""
+            android:singleLine="true"
+            android:maxEms="5"
+            android:ellipsize="end"
+            android:textColor="#1a1a1a"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/catch_content2"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/catch_content"
+            android:text=""
+            android:singleLine="true"
+            android:maxEms="10"
+            android:ellipsize="end"
+            android:textColor="#1a1a1a"
+            android:textSize="14sp"/>
+        
+        <ImageView
+            android:id="@+id/catch_content3"
+            android:layout_width="25dp"
+            android:layout_height="28dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/catch_content2"/>
+
+        <TextView
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/catch_content3" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_head"
+        android:src="@drawable/catch_doll_push_default"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_gravity="center_vertical|left"
+        android:layout_marginLeft="6dp"/>
+
+</RelativeLayout>
