@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:background="#FFffffff">
+    
+	<ImageView 
+	    android:id="@+id/icon"
+	    android:layout_width="47dp"
+	    android:layout_height="47dp"
+	    android:src="@mipmap/apple_pic"
+	    android:scaleType="fitXY"
+	    android:layout_marginLeft="10dp"
+	    android:layout_centerVertical="true"/>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_centerVertical="true"
+	    android:layout_marginLeft="15dp"
+	    android:layout_marginRight="20dp"
+	    android:layout_toRightOf="@id/icon" 
+	    android:gravity="center_vertical"
+	    android:orientation="vertical">
+
+	    <TextView
+	        android:id="@+id/text"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginBottom="5dp"
+	        android:singleLine="true"
+			android:textColor="#1a1a1a"
+	        android:textSize="18sp" />
+
+	    <ProgressBar
+	        android:id="@+id/process"
+			android:background="#b3b3b3"
+	        style="?android:attr/progressBarStyleHorizontal"
+	        android:layout_width="match_parent"
+	        android:layout_height="3dp"
+			android:progressDrawable="@drawable/progressbar"
+	        android:indeterminate="false"
+	        android:indeterminateOnly="false" />
+	</LinearLayout>
+
+</RelativeLayout>

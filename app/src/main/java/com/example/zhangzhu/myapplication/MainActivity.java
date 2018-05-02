@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.zhangzhu.myapplication.CustomView.SuccessCatchPushView;
 import com.example.zhangzhu.myapplication.Util.CommonUtils;
@@ -43,6 +44,13 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_first);
         initView();
         initMethod();
+
+//        testNotification();
+    }
+
+    private void testNotification() {
+        AppNotification an = new AppNotification(this);
+        an.notifyStart();
     }
 
     public void initMethod() {
@@ -59,6 +67,8 @@ public class MainActivity extends BaseActivity {
 //        registerReceiver(mHomeButtonCallBackReceiver, intentFilter);
 
 //        startService(new Intent(this, TestService.class));
+
+//        Toast.makeText(this, this.getString(R.string.step1string), Toast.LENGTH_LONG).show();
 
     }
 
