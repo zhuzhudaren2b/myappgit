@@ -13,45 +13,36 @@
     <Button
         android:id = "@+id/jumpButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="jump" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Hello"
-        android:maxLines="2"/>
+        android:layout_height="80dp"
+        android:background="#fdb60a"
+        android:textSize="24sp"
+        android:text="Jump" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:gravity="center"
+        android:layout_marginTop="30dp"
         android:textSize="24sp"
-        android:textColor="#00ff00"
-        android:text="TextView" />
+        android:background="#8022a149"
+        android:text="JumpJump" />
+
+    <TextView
+        android:id="@+id/textView_2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="24sp"
+        android:background="#0091ea"
+        android:text="JumpJumpJump" />
 
     <com.example.zhangzhu.myapplication.TestPoPLayout
         android:id="@+id/test_pop_layout"
         android:layout_width="264dp"
         android:layout_height="34dp"
         android:visibility="gone"
-        />
-
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
-
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:max="100"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         />
 
     <com.example.zhangzhu.myapplication.CustomView.SuccessCatchPushView

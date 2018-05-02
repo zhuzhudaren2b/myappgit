@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zhangzhu.myapplication.CustomView.SuccessCatchPushView;
@@ -27,11 +28,10 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Response;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
     Button btn;
-//    ImageView imView;
-    ProgressBar pb1;
-    ProgressBar pb2;
+    TextView textView;
+    TextView textView2;
     TestPoPLayout tpp;
     SuccessCatchPushView mSuccessCatchPushView;
     boolean isShow = false;
@@ -43,33 +43,106 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         initView();
-        initMethod();
+        initMethodEntry();
+    }
 
+    /*初始化控件*/
+    private void initView() {
+        btn = findViewById(R.id.jumpButton);
+        textView = findViewById(R.id.textView);
+        textView2 = findViewById(R.id.textView_2);
+        btn.setOnClickListener(this);
+        textView.setOnClickListener(this);
+        textView2.setOnClickListener(this);
+
+        tpp = (TestPoPLayout) findViewById(R.id.test_pop_layout);
+        mSuccessCatchPushView = (SuccessCatchPushView) findViewById(R.id.success_catch_push);
+    }
+
+    @Override
+    public void onClick(View v) {
+        //something to do
+        switch (v.getId()) {
+            case R.id.jumpButton:
+//                DialerToast.showMessage(MainActivity.this, "1", 1);
+                break;
+            case R.id.textView:
+//                DialerToast.showMessage(MainActivity.this, "2", 1);
+                break;
+            case R.id.textView_2:
+//                DialerToast.showMessage(MainActivity.this, "3", 1);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void initMethodEntry() {
+        /*测试各类功能activity的入口*/
+//        startIndexActivity(1);
+
+        /*测试6.0权限*/
+//        getPermission();
+//        new CheckPermission(this).checkPermission();
+
+        /*测试联网*/
+//        httpSendTest();
+
+         /*测试fragment dialog蒙版*/
+//        ProfitGuideDialogFragment fragment = ProfitGuideDialogFragment.newInstance(0);
+//        getSupportFragmentManager().beginTransaction().add(fragment, ProfitGuideDialogFragment.class.getSimpleName()).commitAllowingStateLoss();
+
+        /*测试homekey receiver*/
+//        mHomeButtonCallBackReceiver = new HomeButtonCallBackReceiver();
+//        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+//        registerReceiver(mHomeButtonCallBackReceiver, intentFilter);
+
+        /*测试service*/
+//        startService(new Intent(this, TestService.class));
+
+        /*测试notification*/
 //        testNotification();
+
+        /*测试toast*/
+//        DialerToast.showMessage(MainActivity.this, "Me TEST bottom:"+ Gravity.BOTTOM+", center:"+Gravity.CENTER, 0, Gravity.BOTTOM, 0,500);
+
+        /*自定义view和动画相关*/
+//        hideOrShow();
+//        playAnimator(tpp);
+
+    }
+
+    /*测试各类功能activity的入口*/
+    public void startIndexActivity(int index) {
+        Intent startIndexActivity;
+        switch(index){
+            case 1:
+                startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
+                break;
+            case 2:
+                startIndexActivity = new Intent(MainActivity.this, ConversionActivity.class);
+                break;
+            case 3:
+                startIndexActivity = new Intent(MainActivity.this, FragmentTestActivity.class);
+                break;
+            case 4:
+                startIndexActivity = new Intent(MainActivity.this, SencerActivity.class);
+                break;
+            case 5:
+                startIndexActivity = new Intent(MainActivity.this, FragmentTestActivity.class);
+                break;
+            case 6:
+                startIndexActivity = new Intent(MainActivity.this, FragmentTestActivity.class);
+                break;
+            default:
+                startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
+        }
+        startActivityForResult(startIndexActivity, 110);
     }
 
     private void testNotification() {
         AppNotification an = new AppNotification(this);
         an.notifyStart();
-    }
-
-    public void initMethod() {
-//        startIndexActivity(1);
-//        getPermission();
-// new CheckPermission(this).checkPermission();
-//        httpSendTest();
-
-//        ProfitGuideDialogFragment fragment = ProfitGuideDialogFragment.newInstance(0);
-//        getSupportFragmentManager().beginTransaction().add(fragment, ProfitGuideDialogFragment.class.getSimpleName()).commitAllowingStateLoss();
-
-//        mHomeButtonCallBackReceiver = new HomeButtonCallBackReceiver();
-//        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-//        registerReceiver(mHomeButtonCallBackReceiver, intentFilter);
-
-//        startService(new Intent(this, TestService.class));
-
-//        Toast.makeText(this, this.getString(R.string.step1string), Toast.LENGTH_LONG).show();
-
     }
 
     @Override
@@ -106,41 +179,14 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    private void initView() {
-        btn = findViewById(R.id.jumpButton);
-//        imView = (ImageView)findViewById(R.id.imageView2);
-//        imView.setImageResource(R.mipmap.pic1);
-//        imView.setVisibility(View.GONE);
-        pb1 = (ProgressBar)findViewById(R.id.progressBar1);
-        pb2 = (ProgressBar)findViewById(R.id.progressBar2);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                DialerToast.showToast("Me TEST", true, MainActivity.this);
-//                DialerToast.showToastWithPic(MainActivity.this);
-
-
-                DialerToast.showMessage(MainActivity.this, "Me TEST bottom:"+ Gravity.BOTTOM+", center:"+Gravity.CENTER, 0, Gravity.BOTTOM, 0,500);
-//                CommonUtils.showToast(MainActivity.this,"jump",1);
-//                hideOrShow();
-
-//                playAnimator(tpp);
-
-//                someOneCatchTheDoll();
-//                startCamera();
-//                CommonUtils.showToast(MainActivity.this,"phone calling result: "+CommonUtils.getTelephonyCallState(MainActivity.this),1);
-            }
-        });
-        tpp = (TestPoPLayout) findViewById(R.id.test_pop_layout);
-        mSuccessCatchPushView = (SuccessCatchPushView) findViewById(R.id.success_catch_push);
-    }
-
+    /*启动相机*/
     public void startCamera(){
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
 //        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivity(intent);
     }
 
+    /*自定义view弹框*/
     public void someOneCatchTheDoll() {
         String url = "http://cootek-dialer-download.oss-cn-hangzhou.aliyuncs.com/social_head/head/14128675938765421684.png";
         String dollName = "大皮卡丘";
@@ -229,43 +275,10 @@ public class MainActivity extends BaseActivity {
         set.start();
     }
 
-    public void startIndexActivity(int index) {
-        Intent startIndexActivity;
-        switch(index){
-            case 1:
-                startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
-                break;
-            case 2:
-                startIndexActivity = new Intent(MainActivity.this, ConversionActivity.class);
-                break;
-            case 3:
-                startIndexActivity = new Intent(MainActivity.this, FragmentTestActivity.class);
-                break;
-            case 4:
-                startIndexActivity = new Intent(MainActivity.this, SencerActivity.class);
-                break;
-            case 5:
-                startIndexActivity = new Intent(MainActivity.this, FragmentTestActivity.class);
-                break;
-            case 6:
-                startIndexActivity = new Intent(MainActivity.this, FragmentTestActivity.class);
-                break;
-            default:
-                startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
-        }
-         startActivityForResult(startIndexActivity, 110);
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mHomeButtonCallBackReceiver);
-    }
-
-    public void drawProgram(){
-        int progress = pb2.getProgress();
-        progress+=20;
-        pb2.setProgress(progress);
     }
 
     public void getPermission(){
@@ -287,5 +300,4 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-
 }
