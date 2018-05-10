@@ -12,6 +12,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * make a test
+ */
 public class CheckPermission {
     private static final int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 124;
 
