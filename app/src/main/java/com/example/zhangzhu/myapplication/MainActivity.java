@@ -22,6 +22,8 @@ import com.example.zhangzhu.myapplication.Util.CommonUtils;
 import com.example.zhangzhu.myapplication.Util.DialerToast;
 import com.example.zhangzhu.myapplication.Util.networktest.HttpUtilImprove;
 import com.example.zhangzhu.myapplication.receiver.HomeButtonCallBackReceiver;
+import com.example.zhangzhu.myapplication.rx.RxJavaTest;
+import com.example.zhangzhu.myapplication.service.TestService;
 
 import java.io.IOException;
 
@@ -98,7 +100,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //        registerReceiver(mHomeButtonCallBackReceiver, intentFilter);
 
         /*测试service*/
-//        startService(new Intent(this, TestService.class));
+//        MyApplication.context.startService(new Intent(MyApplication.context, TestService.class));
 
         /*测试notification*/
 //        testNotification();
@@ -110,6 +112,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //        hideOrShow();
 //        playAnimator(tpp);
 
+        RxJavaTest.start();
     }
 
     /*测试各类功能activity的入口*/

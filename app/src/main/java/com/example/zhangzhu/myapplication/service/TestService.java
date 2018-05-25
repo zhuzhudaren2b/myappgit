@@ -6,6 +6,7 @@ import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.zhangzhu.myapplication.receiver.HomeButtonCallBackReceiver;
 
@@ -25,6 +26,7 @@ public class TestService extends Service {
         mHomeButtonCallBackReceiver = new HomeButtonCallBackReceiver();
         IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         registerReceiver(mHomeButtonCallBackReceiver, intentFilter);
+        Toast.makeText(this, "start TestService", Toast.LENGTH_SHORT).show();
     }
 
     @Nullable
