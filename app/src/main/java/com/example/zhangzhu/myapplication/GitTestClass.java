@@ -27,4 +27,8 @@ public class GitTestClass {
 
     }
 
+    public void RevertTest() {
+        // first add something;
+    }
+
 }
