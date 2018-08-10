@@ -13,10 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.zhangzhu.myapplication.CustomView.SuccessCatchPushView;
 import com.example.zhangzhu.myapplication.Util.CommonUtils;
 import com.example.zhangzhu.myapplication.Util.DialerToast;
@@ -24,6 +26,9 @@ import com.example.zhangzhu.myapplication.Util.networktest.HttpUtilImprove;
 import com.example.zhangzhu.myapplication.receiver.HomeButtonCallBackReceiver;
 import com.example.zhangzhu.myapplication.rx.RxJavaTest;
 import com.example.zhangzhu.myapplication.service.TestService;
+import com.example.zhangzhu.myapplication.testclass.Consumer;
+import com.example.zhangzhu.myapplication.testclass.Produce;
+import com.example.zhangzhu.myapplication.testclass.Son;
 
 import java.io.IOException;
 
@@ -37,6 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     TestPoPLayout tpp;
     SuccessCatchPushView mSuccessCatchPushView;
     boolean isShow = false;
+    public static final Object obj = new Object();
 
     private HomeButtonCallBackReceiver mHomeButtonCallBackReceiver;
 
@@ -112,7 +118,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //        hideOrShow();
 //        playAnimator(tpp);
 
-        RxJavaTest.start();
+//        RxJavaTest.start();
+
+        //测试回调
+//        GitTestClass.showToast(textView , new GitTestClass.Action() {
+//            @Override
+//            public void callback() {
+//                DialerToast.showMessage(MainActivity.this, "test interface",0);
+//            }
+//        });
+
+        //测试同步
+        testSynchronized();
     }
 
     /*测试各类功能activity的入口*/
@@ -145,7 +162,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private void testNotification() {
         AppNotification an = new AppNotification(this);
-        an.notifyStart();
+        an.startNotification2();
+//        an.notifyStart();
     }
 
     @Override
@@ -302,5 +320,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 String data = response.body().toString();
             }
         });
+    }
+
+    public void testSynchronized() {
+        new Thread(new Produce()).start();
+        new Thread(new Consumer()).start();
     }
 }

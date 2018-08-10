@@ -4,7 +4,9 @@ import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 public class TestClass {
 
@@ -20,16 +22,33 @@ public class TestClass {
 //        insertItem();
 //        System.out.println("结果为：sss3 :"+getURLEncoderString("+8618616320848"));
 
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add(null);
+        list.add("c");
 
-        switch(2){
-            case 1:
-                System.out.println("sss3 : 1");
-                break;
-            case 2:
-                System.out.println("sss3 : 2");
-
+        for (String str: list) {
+            if(str == null){
+                continue;
+            }
         }
-        System.out.println("sss3 : 3");
+
+        Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            String s = it.next();
+            if(s == null){
+                continue;
+            }
+            System.out.println("结果为：sss3 :"+s);
+        }
+
+        Demo demo = new Demo();
+        demo.show("good");
+        demo.show(new Integer(5));
+
+        test(demo);
+        System.out.println("结果为：zzz3 :"+demo.testStr);
     }
 
     public static String timet(long time) {
@@ -65,8 +84,15 @@ public class TestClass {
         return result;
     }
 
-    class TestInnerClass{
+    static class Demo{
+        public String testStr;
+        public <T> void show(T t) {
+            System.out.println("sss4 :" + t);
+        }
+    }
 
+    public static void test(Demo demo) {
+        demo.testStr = "aaaa";
     }
 }
 

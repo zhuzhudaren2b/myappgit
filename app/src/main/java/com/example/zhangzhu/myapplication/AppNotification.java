@@ -67,4 +67,35 @@ public class AppNotification {
                 progressRate, false);
         return noti;
     }
+
+
+    public void startNotification2() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mCtx);
+        RemoteViews remoteViews = new RemoteViews(mCtx.getPackageName(),
+                R.layout.download_progress_widget);
+        remoteViews.setImageViewResource(R.id.icon, R.mipmap.grape_pic);
+        remoteViews.setTextViewText(R.id.text, "早报");
+        PendingIntent intent = null;
+        final NotificationManager manager = (NotificationManager) mCtx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        Notification notification1
+                = builder
+//                .setContentTitle("this is title")
+//                .setContentText("sub text is here")
+                .setCustomContentView(remoteViews)
+//                .setCustomBigContentView(remoteViews)
+                .setSmallIcon(R.mipmap.banana_pic)
+                .setOngoing(true)
+//                .setTicker("what???")
+//                .setWhen(System.currentTimeMillis())
+//                .setContentIntent(intent)
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+//                .setAutoCancel(true)
+                .build();
+//        notification1.flags = Notification.FLAG_ONGOING_EVENT;
+        try {
+            manager.notify(1111, notification1);
+        } catch (Exception e) {
+        }
+    }
 }
