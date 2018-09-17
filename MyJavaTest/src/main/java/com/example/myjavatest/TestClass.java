@@ -1,98 +1,114 @@
 package com.example.myjavatest;
 
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
+import com.google.gson.Gson;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
+import java.util.Map;
 
 public class TestClass {
-
-    private static ArrayList<StringItem> list = new ArrayList();
-
     public static void main(String[] args) {
+//        testInsert();
 
-//        int ii = 1402733340;
-//        StringBuilder sb = new StringBuilder("result is ");
-//        sb.append(timet(ii)).append("    end");
-//        System.out.println("结果为：sss3 :"+sb);
+//        Father son = new Son();
+//        son.test();
 
-//        insertItem();
-//        System.out.println("结果为：sss3 :"+getURLEncoderString("+8618616320848"));
+//        printArray();
+    }
 
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.add(null);
-        list.add("c");
+    public static void printArray() {
+        int[] intArray = {1,2,32};
+        Map map = new HashMap();
+        map.put(1, "first");
+        map.put(2, "second");
+        System.out.println("result :"+ Arrays.toString(intArray));
+        Gson gson = new Gson();
+        System.out.println("result2 :"+ gson.toJson(map));
+    }
 
-        for (String str: list) {
-            if(str == null){
-                continue;
+
+    private static void testInsert() {
+        List<Integer> list = new ArrayList<>();
+        for (int i =1; i<= 10; i++) {
+            list.add(i);
+        }
+        int startIndex = 2;
+        int interval = 5;
+        for (int j =1; j<= 5; j++) {
+            String aa = "test"+j;
+            insert(startIndex, interval+1, aa, list);
+        }
+        for (Object obj:list) {
+            System.out.println("result :"+ obj.toString());
+        }
+    }
+
+    public static <T extends Object> List<T> insert(int startIndex, int showInterval, String aa, List<T> list) {
+        Object object = null;
+        int addedAdCount = 0;
+        for (int i = 0 ; i < list.size(); i++) {
+            if (i == (showInterval * addedAdCount + startIndex)) {
+                object = list.get(i);
+                if (!(object instanceof String)) {
+                    if (!list.contains(aa)) {
+                        list.add(i,(T)aa);
+                        System.out.println("add :"+ i);
+                    } else {
+                        System.out.println("ignore_add : " + i);
+                    }
+                    break;
+                } else {
+                    addedAdCount++;
+                }
             }
         }
-
-        Iterator<String> it = list.iterator();
-        while (it.hasNext()) {
-            String s = it.next();
-            if(s == null){
-                continue;
-            }
-            System.out.println("结果为：sss3 :"+s);
-        }
-
-        Demo demo = new Demo();
-        demo.show("good");
-        demo.show(new Integer(5));
-
-        test(demo);
-        System.out.println("结果为：zzz3 :"+demo.testStr);
+        return list;
     }
 
-    public static String timet(long time) {
-        SimpleDateFormat sdr = new SimpleDateFormat("MM月dd日HH:mm");
-        String times = sdr.format(new Date(time * 1000L));
-        return times;
+}
+
+class Son extends Father {
+    public Son() {
+        System.out.println("Son create");
     }
 
-    public static void insertItem(){
-        list.add(new StringItem("1"));
-        list.add(new StringItem("2"));
-//        list.add(0,"3");
-        System.out.println("结果为：sss3 :"+list.toString());
+    void go() {
+        test();
     }
 
-    static class StringItem{
-        StringItem(String name){
-            this.name = name;
-        }
-        String name;
+    @Override
+    void say() {
+        System.out.println("Son say ~");
     }
+}
 
-    public static String getURLEncoderString(String str) {
-        String result = "";
-        if (null == str) {
-            return "";
-        }
-        try {
-            result = java.net.URLEncoder.encode(str, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return result;
+class Father {
+    public Father() {
+        System.out.println("Father create");
     }
-
-    static class Demo{
-        public String testStr;
-        public <T> void show(T t) {
-            System.out.println("sss4 :" + t);
-        }
+    void test() {
+        say();
     }
+    void say() {
+        System.out.println("Father say ~");
+    }
+}
 
-    public static void test(Demo demo) {
-        demo.testStr = "aaaa";
+interface Iclass<T> {
+    void cut(T t);
+}
+
+abstract class MyClass<T> implements Iclass<T> {
+}
+
+class MyRealClass<Father> extends MyClass<Father> {
+
+    @Override
+    public void cut(Father f) {
+
     }
 }
 

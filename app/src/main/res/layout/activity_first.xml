@@ -38,6 +38,25 @@
         android:background="#0091ea"
         android:text="JumpJumpJump" />
 
+    <com.example.zhangzhu.myapplication.MyRelativeLayout
+        android:id="@+id/layout_sub"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="24sp"
+        android:background="@color/colorPrimary">
+
+        <com.example.zhangzhu.myapplication.MyTextView
+            android:id = "@+id/layout_sub_jump"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="#fdb60a"
+            android:textSize="24sp"
+            android:text="Jump" />
+
+    </com.example.zhangzhu.myapplication.MyRelativeLayout>
+
     <com.example.zhangzhu.myapplication.TestPoPLayout
         android:id="@+id/test_pop_layout"
         android:layout_width="264dp"

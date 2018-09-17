@@ -4,6 +4,7 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -11,10 +12,12 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +44,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     TextView textView2;
     TestPoPLayout tpp;
     SuccessCatchPushView mSuccessCatchPushView;
+    MyRelativeLayout mTestLayout;
+    TextView mTestView;
     boolean isShow = false;
     public static final Object obj = new Object();
 
@@ -55,13 +60,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     }
 
     /*初始化控件*/
+    @SuppressLint("ClickableViewAccessibility")
     private void initView() {
         btn = findViewById(R.id.jumpButton);
         textView = findViewById(R.id.textView);
         textView2 = findViewById(R.id.textView_2);
+        mTestLayout = findViewById(R.id.layout_sub);
+        mTestView = findViewById(R.id.layout_sub_jump);
+
         btn.setOnClickListener(this);
         textView.setOnClickListener(this);
         textView2.setOnClickListener(this);
+        mTestView.setOnClickListener(this);
+
+//        mTestView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (event.getAction() == MotionEvent.ACTION_UP) {
+//                    mTestLayout.requestDisallowInterceptTouchEvent(false);
+//                } else {
+//                    mTestLayout.requestDisallowInterceptTouchEvent(true);
+//                }
+//                return false;
+//            }
+//        });
 
         tpp = (TestPoPLayout) findViewById(R.id.test_pop_layout);
         mSuccessCatchPushView = (SuccessCatchPushView) findViewById(R.id.success_catch_push);
@@ -72,12 +94,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         //something to do
         switch (v.getId()) {
             case R.id.jumpButton:
+                testNotification();
 //                DialerToast.showMessage(MainActivity.this, "1", 1);
                 break;
             case R.id.textView:
 //                DialerToast.showMessage(MainActivity.this, "2", 1);
                 break;
             case R.id.textView_2:
+//                DialerToast.showMessage(MainActivity.this, "3", 1);
+                break;
+            case R.id.layout_sub_jump:
+                Log.i("TAG","sub on click ---");
 //                DialerToast.showMessage(MainActivity.this, "3", 1);
                 break;
             default:
@@ -129,7 +156,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //        });
 
         //测试同步
-        testSynchronized();
+//        testSynchronized();
     }
 
     /*测试各类功能activity的入口*/
