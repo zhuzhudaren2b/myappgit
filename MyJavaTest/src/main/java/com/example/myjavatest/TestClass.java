@@ -10,25 +10,20 @@ import java.util.List;
 import java.util.Map;
 
 public class TestClass {
+
     public static void main(String[] args) {
+
+        initTest();
+
+    }
+
+    private static void initTest() {
 //        testInsert();
 
-//        Father son = new Son();
-//        son.test();
+//        FatherAdSon.testSuperMethod();
 
-//        printArray();
+//        MyExceptionTest.test();
     }
-
-    public static void printArray() {
-        int[] intArray = {1,2,32};
-        Map map = new HashMap();
-        map.put(1, "first");
-        map.put(2, "second");
-        System.out.println("result :"+ Arrays.toString(intArray));
-        Gson gson = new Gson();
-        System.out.println("result2 :"+ gson.toJson(map));
-    }
-
 
     private static void testInsert() {
         List<Integer> list = new ArrayList<>();
@@ -68,48 +63,6 @@ public class TestClass {
         return list;
     }
 
-}
-
-class Son extends Father {
-    public Son() {
-        System.out.println("Son create");
-    }
-
-    void go() {
-        test();
-    }
-
-    @Override
-    void say() {
-        System.out.println("Son say ~");
-    }
-}
-
-class Father {
-    public Father() {
-        System.out.println("Father create");
-    }
-    void test() {
-        say();
-    }
-    void say() {
-        System.out.println("Father say ~");
-    }
-}
-
-interface Iclass<T> {
-    void cut(T t);
-}
-
-abstract class MyClass<T> implements Iclass<T> {
-}
-
-class MyRealClass<Father> extends MyClass<Father> {
-
-    @Override
-    public void cut(Father f) {
-
-    }
 }
 
 

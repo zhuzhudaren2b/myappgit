@@ -1,6 +1,4 @@
-package com.example.zhangzhu.myapplication.Util;
-
-import android.content.Context;
+package com.example.zhangzhu.myapplication.util;
 
 /**
  * Created by zhangzhu on 2018/3/29.

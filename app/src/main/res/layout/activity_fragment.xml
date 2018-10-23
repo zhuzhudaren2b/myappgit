@@ -6,14 +6,14 @@
 
     <fragment
         android:id="@+id/left_fragment"
-        android:name="com.example.zhangzhu.myapplication.FragmentTest.LeftFragment"
+        android:name="com.example.zhangzhu.myapplication.fragmenttest.LeftFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
 
     <fragment
         android:id="@+id/right_fragment"
-        android:name="com.example.zhangzhu.myapplication.FragmentTest.RightFragment"
+        android:name="com.example.zhangzhu.myapplication.fragmenttest.RightFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"/>

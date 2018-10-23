@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.RecycleViewBean;
+package com.example.zhangzhu.myapplication.recycleviewbean;
 
 public class Msg {
 

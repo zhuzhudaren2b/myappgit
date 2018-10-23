@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.Util.networktest;
+package com.example.zhangzhu.myapplication.util.networktest;
 
 public interface HttpCallbackListener {
 

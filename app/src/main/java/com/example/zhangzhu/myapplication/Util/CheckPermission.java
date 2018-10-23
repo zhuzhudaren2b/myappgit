@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.Util;
+package com.example.zhangzhu.myapplication.util;
 
 import android.Manifest;
 import android.annotation.TargetApi;

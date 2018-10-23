@@ -1,9 +1,8 @@
-package com.example.zhangzhu.myapplication.Util;
+package com.example.zhangzhu.myapplication.util;
 
 import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import android.util.TypedValue;
 import android.view.WindowManager;
 import com.example.zhangzhu.myapplication.MyApplication;
 

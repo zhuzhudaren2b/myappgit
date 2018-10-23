@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.Util;
+package com.example.zhangzhu.myapplication.util;
 
 import android.content.Context;
 import android.graphics.Color;

@@ -1,11 +1,9 @@
-package com.example.zhangzhu.myapplication.CustomView;
+package com.example.zhangzhu.myapplication.customview;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,13 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.zhangzhu.myapplication.R;
-import com.example.zhangzhu.myapplication.Util.GlideCircleTransform;
-
-import de.hdodenhof.circleimageview.CircleImageView;
+import com.example.zhangzhu.myapplication.util.GlideCircleTransform;
 
 /**
  * Created by zhangzhu on 2018/1/5.

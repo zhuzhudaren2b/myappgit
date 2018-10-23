@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.RecycleViewBean;
+package com.example.zhangzhu.myapplication.recycleviewbean;
 
 /**
  * Created by zhangzhu on 2018/2/14.

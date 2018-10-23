@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.FragmentTest;
+package com.example.zhangzhu.myapplication.fragmenttest;
 
 import android.content.Context;
 import android.os.Bundle;

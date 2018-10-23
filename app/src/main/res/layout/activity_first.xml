@@ -64,7 +64,7 @@
         android:visibility="gone"
         />
 
-    <com.example.zhangzhu.myapplication.CustomView.SuccessCatchPushView
+    <com.example.zhangzhu.myapplication.customview.SuccessCatchPushView
         android:id="@+id/success_catch_push"
         android:layout_width="300dp"
         android:layout_height="46dp"

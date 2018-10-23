@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.CustomView;
+package com.example.zhangzhu.myapplication.customview;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

@@ -8,7 +8,7 @@ import android.widget.Toast;
  */
 
 public class Son extends Father {
-    String name;
+    public String name;
     public void play(){
         this.name = "";
         super.name = "good";

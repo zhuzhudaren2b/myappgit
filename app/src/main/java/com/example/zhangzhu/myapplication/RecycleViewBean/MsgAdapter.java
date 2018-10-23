@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.RecycleViewBean;
+package com.example.zhangzhu.myapplication.recycleviewbean;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

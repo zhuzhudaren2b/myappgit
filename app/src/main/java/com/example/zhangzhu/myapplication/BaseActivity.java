@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.zhangzhu.myapplication.Util.ActivityCollector;
+import com.example.zhangzhu.myapplication.util.ActivityCollector;
 
 /**
  * Created by zhangzhu on 2017/12/23.

@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
+import rx.android.MainThreadSubscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -54,16 +55,10 @@ public class RxJavaTest {
 
             @Override
             public void onNext(String s) {
-                s = Thread.currentThread().getName();
                 Toast.makeText(MyApplication.context, s, Toast.LENGTH_SHORT).show();
             }
         };
 
-        observable.filter(new Func1<String, Boolean>() {
-            @Override
-            public Boolean call(String s) {
-                return s.contains("s");
-            }
-        }).subscribeOn(Schedulers.io()).subscribe(observer);
+        observable1.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
     }
 }

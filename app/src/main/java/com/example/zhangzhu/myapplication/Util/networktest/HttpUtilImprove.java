@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.Util.networktest;
+package com.example.zhangzhu.myapplication.util.networktest;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -6,10 +6,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
 
 public class HttpUtilImprove {
 

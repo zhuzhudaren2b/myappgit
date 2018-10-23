@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/MyJavaTest" />
+            <option value="$PROJECT_DIR$/MySecondJavaLibrary" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

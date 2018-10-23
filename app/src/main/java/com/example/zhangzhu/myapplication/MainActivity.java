@@ -9,29 +9,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.zhangzhu.myapplication.CustomView.SuccessCatchPushView;
-import com.example.zhangzhu.myapplication.Util.CommonUtils;
-import com.example.zhangzhu.myapplication.Util.DialerToast;
-import com.example.zhangzhu.myapplication.Util.networktest.HttpUtilImprove;
+import com.example.zhangzhu.myapplication.collect.QueueTest;
+import com.example.zhangzhu.myapplication.customview.SuccessCatchPushView;
+import com.example.zhangzhu.myapplication.invoke.InvokeTestUtil;
+import com.example.zhangzhu.myapplication.util.CommonUtils;
+import com.example.zhangzhu.myapplication.util.networktest.HttpUtilImprove;
+import com.example.zhangzhu.myapplication.observer.ObserverTestUtil;
 import com.example.zhangzhu.myapplication.receiver.HomeButtonCallBackReceiver;
-import com.example.zhangzhu.myapplication.rx.RxJavaTest;
-import com.example.zhangzhu.myapplication.service.TestService;
 import com.example.zhangzhu.myapplication.testclass.Consumer;
 import com.example.zhangzhu.myapplication.testclass.Produce;
-import com.example.zhangzhu.myapplication.testclass.Son;
 
 import java.io.IOException;
 
@@ -73,18 +65,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         textView2.setOnClickListener(this);
         mTestView.setOnClickListener(this);
 
-//        mTestView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (event.getAction() == MotionEvent.ACTION_UP) {
-//                    mTestLayout.requestDisallowInterceptTouchEvent(false);
-//                } else {
-//                    mTestLayout.requestDisallowInterceptTouchEvent(true);
-//                }
-//                return false;
-//            }
-//        });
-
         tpp = (TestPoPLayout) findViewById(R.id.test_pop_layout);
         mSuccessCatchPushView = (SuccessCatchPushView) findViewById(R.id.success_catch_push);
     }
@@ -98,6 +78,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //                DialerToast.showMessage(MainActivity.this, "1", 1);
                 break;
             case R.id.textView:
+
 //                DialerToast.showMessage(MainActivity.this, "2", 1);
                 break;
             case R.id.textView_2:
@@ -156,7 +137,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //        });
 
         //测试同步
-//        testSynchronized();
+        testSynchronized();
+
+        //测试序列化
+//        SerializeUtil.testWrite();
+
+        //测试观察者模式
+//        new ObserverTestUtil();
+
+        //测试反射
+//        new InvokeTestUtil();
+
+        //数据结构
+//        new QueueTest();
     }
 
     /*测试各类功能activity的入口*/
@@ -232,95 +225,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
 //        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivity(intent);
-    }
-
-    /*自定义view弹框*/
-    public void someOneCatchTheDoll() {
-        String url = "http://cootek-dialer-download.oss-cn-hangzhou.aliyuncs.com/social_head/head/14128675938765421684.png";
-        String dollName = "大皮卡丘";
-        String nickName = "张竹";
-        mSuccessCatchPushView.showPushContent(mSuccessCatchPushView,url,nickName,dollName);
-    }
-
-    public void playAnimator(final TestPoPLayout view){
-        view.setVisibility(View.VISIBLE);
-        view.setAlpha(1);
-        ObjectAnimator valueAnimatorMe = ObjectAnimator.ofFloat(view, "translationX", 0,50,-50,0);;
-        valueAnimatorMe.setDuration(800);
-        valueAnimatorMe.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                view.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        setEndAnim(view);
-                    }
-                },3000);
-
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-            }
-        });
-        valueAnimatorMe.start();
-
-    }
-
-    public void hideOrShow(){
-
-        Log.d("zhangzhu","hideOrShow isShow "+isShow);
-        if(!isShow){
-            tpp.setAlpha(1);
-            tpp.setVisibility(View.VISIBLE);
-            setStartAnim();
-            isShow = true;
-        }else{
-//            setEndAnim();
-
-        }
-    }
-
-    public void setStartAnim(){
-        ObjectAnimator valueAnimatorMe = ObjectAnimator.ofFloat(tpp, "translationX", 0,50,-50,0);;
-        valueAnimatorMe.setDuration(800);
-        valueAnimatorMe.start();
-    }
-
-    public void setEndAnim(final TestPoPLayout view){
-        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "translationX", 0, -300);
-        ObjectAnimator animator2 = ObjectAnimator.ofFloat(view, "alpha", 1, 0);
-        animator.setDuration(1000);
-        animator2.setDuration(1000);
-        animator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                view.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-            }
-        });
-        AnimatorSet set = new AnimatorSet();
-        set.playTogether(animator, animator2);
-        set.start();
     }
 
     @Override

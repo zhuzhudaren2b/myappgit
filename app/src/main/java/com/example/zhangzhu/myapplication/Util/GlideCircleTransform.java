@@ -1,4 +1,4 @@
-package com.example.zhangzhu.myapplication.Util;//
+package com.example.zhangzhu.myapplication.util;//
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
 //
