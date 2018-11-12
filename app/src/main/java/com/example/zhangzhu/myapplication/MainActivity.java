@@ -6,6 +6,10 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -13,17 +17,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zhangzhu.myapplication.collect.QueueTest;
+import com.example.zhangzhu.myapplication.contentprovider.ContentProviderUtil;
 import com.example.zhangzhu.myapplication.customview.SuccessCatchPushView;
 import com.example.zhangzhu.myapplication.invoke.InvokeTestUtil;
+import com.example.zhangzhu.myapplication.manager.MediaPlayerAcitivity;
+import com.example.zhangzhu.myapplication.rx.RxJavaTest;
 import com.example.zhangzhu.myapplication.util.CommonUtils;
 import com.example.zhangzhu.myapplication.util.networktest.HttpUtilImprove;
 import com.example.zhangzhu.myapplication.observer.ObserverTestUtil;
 import com.example.zhangzhu.myapplication.receiver.HomeButtonCallBackReceiver;
 import com.example.zhangzhu.myapplication.testclass.Consumer;
 import com.example.zhangzhu.myapplication.testclass.Produce;
+import com.example.zhangzhu.myapplication.webview.WebViewActivity;
 
 import java.io.IOException;
 
@@ -74,7 +84,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         //something to do
         switch (v.getId()) {
             case R.id.jumpButton:
-                testNotification();
+//                RxJavaTest.start();
 //                DialerToast.showMessage(MainActivity.this, "1", 1);
                 break;
             case R.id.textView:
@@ -94,6 +104,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     }
 
     public void initMethodEntry() {
+
         /*测试各类功能activity的入口*/
 //        startIndexActivity(1);
 
@@ -137,7 +148,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //        });
 
         //测试同步
-        testSynchronized();
+//        testSynchronized();
 
         //测试序列化
 //        SerializeUtil.testWrite();
@@ -150,6 +161,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         //数据结构
 //        new QueueTest();
+
+        //content provider
+//        ContentProviderUtil contentProviderUtil = new ContentProviderUtil();
+//        contentProviderUtil.getMsgs();
+//        contentProviderUtil.insertMsg();
+
     }
 
     /*测试各类功能activity的入口*/
@@ -173,6 +190,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case 6:
                 startIndexActivity = new Intent(MainActivity.this, FragmentTestActivity.class);
+                break;
+            case 7:
+                startIndexActivity = new Intent(MainActivity.this, GestureActivity.class);
+                break;
+            case 8:
+                startIndexActivity = new Intent(MainActivity.this, MediaPlayerAcitivity.class);
+                break;
+            case 9:
+                startIndexActivity = new Intent(MainActivity.this, WebViewActivity.class);
                 break;
             default:
                 startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
@@ -256,5 +282,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void testSynchronized() {
         new Thread(new Produce()).start();
         new Thread(new Consumer()).start();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        String screen = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE?"横屏":"竖屏";
+        Toast.makeText(MainActivity.this, "系统屏幕方向发生改变 \n 修改后的方向为" + screen, Toast.LENGTH_SHORT).show();
+    }
+
+    public void testConfiguration() {
+        Configuration config = getResources().getConfiguration();
+        //如果是横屏的话切换成竖屏
+        if(config.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+            MainActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+        //如果竖屏的话切换成横屏
+        if(config.orientation == Configuration.ORIENTATION_PORTRAIT)
+        {
+            MainActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
     }
 }

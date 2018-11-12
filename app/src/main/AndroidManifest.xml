@@ -13,6 +13,10 @@
     <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name="com.example.zhangzhu.myapplication.MyApplication"
@@ -22,7 +26,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,6 +37,9 @@
         <activity android:name=".ConversionActivity"></activity>
         <activity android:name=".FragmentTestActivity"></activity>
         <activity android:name=".SencerActivity"></activity>
+        <activity android:name=".GestureActivity"></activity>
+        <activity android:name=".manager.MediaPlayerAcitivity"></activity>
+        <activity android:name=".webview.WebViewActivity"></activity>
         <service android:name=".service.TestService"/>
     </application>
 

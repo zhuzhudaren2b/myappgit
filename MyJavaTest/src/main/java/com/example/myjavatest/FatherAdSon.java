@@ -6,6 +6,11 @@ package com.example.myjavatest;
 
 public class FatherAdSon {
 
+    static {
+        //static代码块只加载一次
+        System.out.println("load static code");
+    }
+
     public static void testSuperMethod() {
         FatherAdSon fs = new FatherAdSon();
         FatherAdSon.Father son = fs.new Son();

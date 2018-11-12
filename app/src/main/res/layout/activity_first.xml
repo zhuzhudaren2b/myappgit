@@ -26,7 +26,8 @@
         android:layout_marginTop="30dp"
         android:textSize="24sp"
         android:background="#8022a149"
-        android:text="JumpJump" />
+        android:text="JumpJump"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/textView_2"
@@ -36,7 +37,8 @@
         android:layout_marginTop="30dp"
         android:textSize="24sp"
         android:background="#0091ea"
-        android:text="JumpJumpJump" />
+        android:text="JumpJumpJump"
+        android:visibility="gone"/>
 
     <com.example.zhangzhu.myapplication.MyRelativeLayout
         android:id="@+id/layout_sub"
@@ -73,5 +75,13 @@
         android:layout_marginTop="240dp"
         android:visibility="gone"/>
 
+    <!--<com.example.zhangzhu.myapplication.customview.MoveCircleView-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content"/>-->
+
+    <com.example.zhangzhu.myapplication.customview.MyPaintView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

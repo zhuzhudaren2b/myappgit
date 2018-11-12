@@ -1,11 +1,15 @@
 package com.example.myjavatest;
 
+import com.example.myjavatest.producecomsumer.Consumer;
+import com.example.myjavatest.producecomsumer.Producer;
+import com.example.myjavatest.producecomsumer.PublicResource;
 import com.google.gson.Gson;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +22,8 @@ public class TestClass {
     }
 
     private static void initTest() {
+//        testPC();
+
 //        testInsert();
 
 //        FatherAdSon.testSuperMethod();
@@ -41,11 +47,12 @@ public class TestClass {
         }
     }
 
-    public static <T extends Object> List<T> insert(int startIndex, int showInterval, String aa, List<T> list) {
+    public static <T> List<T> insert(int startIndex, int showInterval, String aa, List<T> list) {
         Object object = null;
         int addedAdCount = 0;
         for (int i = 0 ; i < list.size(); i++) {
             if (i == (showInterval * addedAdCount + startIndex)) {
+                System.out.println("insert aa: "+aa+", i :"+ i);
                 object = list.get(i);
                 if (!(object instanceof String)) {
                     if (!list.contains(aa)) {
@@ -63,6 +70,12 @@ public class TestClass {
         return list;
     }
 
+    public static void testPC() {
+        PublicResource p = new PublicResource();
+        new Thread(new Producer(p, "生产者 1 号")).start();
+//        new Thread(new Producer(p, "生产者 2 号")).start();
+        new Thread(new Consumer(p, "消费者 1 号")).start();
+    }
 }
 
 
