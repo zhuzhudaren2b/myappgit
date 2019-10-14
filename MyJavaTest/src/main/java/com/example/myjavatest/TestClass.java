@@ -1,5 +1,6 @@
 package com.example.myjavatest;
 
+import com.example.myjavatest.model.AbsTest;
 import com.example.myjavatest.producecomsumer.Consumer;
 import com.example.myjavatest.producecomsumer.Producer;
 import com.example.myjavatest.producecomsumer.PublicResource;
@@ -12,13 +13,32 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class TestClass {
 
     public static void main(String[] args) {
+        int i =0;
 
-        initTest();
+        AbsTest ab = new AbsTest() {
 
+            public void insert() {
+                System.out.println("insert ....");
+            }
+
+            public void add() {
+                System.out.println("add ------>");
+            }
+        };
+        ab.insert();
+        ab.add();
+
+//        testInsert();
+//        initTest();
+
+//        while (true) {
+//            System.out.println("result :"+ (i++));
+//        }
     }
 
     private static void initTest() {

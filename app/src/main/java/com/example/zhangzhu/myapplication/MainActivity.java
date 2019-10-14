@@ -27,6 +27,8 @@ import com.example.zhangzhu.myapplication.customview.SuccessCatchPushView;
 import com.example.zhangzhu.myapplication.invoke.InvokeTestUtil;
 import com.example.zhangzhu.myapplication.manager.MediaPlayerAcitivity;
 import com.example.zhangzhu.myapplication.rx.RxJavaTest;
+import com.example.zhangzhu.myapplication.touchevent.ToucheventActivity;
+import com.example.zhangzhu.myapplication.util.AppInstallInfo;
 import com.example.zhangzhu.myapplication.util.CommonUtils;
 import com.example.zhangzhu.myapplication.util.networktest.HttpUtilImprove;
 import com.example.zhangzhu.myapplication.observer.ObserverTestUtil;
@@ -84,6 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         //something to do
         switch (v.getId()) {
             case R.id.jumpButton:
+                AppInstallInfo.startTest(this);
 //                RxJavaTest.start();
 //                DialerToast.showMessage(MainActivity.this, "1", 1);
                 break;
@@ -167,14 +170,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //        contentProviderUtil.getMsgs();
 //        contentProviderUtil.insertMsg();
 
+        startIndexActivity(10);
+
     }
 
     /*测试各类功能activity的入口*/
     public void startIndexActivity(int index) {
-        Intent startIndexActivity;
+        Intent startIndexActivity = null;
         switch(index){
             case 1:
-                startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
+                try {
+
+                    Class activityClass = Class.forName("com.example.zhangzhu.myapplication.RecyclerViewTestActivity");
+                    startIndexActivity = new Intent(MainActivity.this, activityClass);
+                } catch (Exception e) {
+                    e.getMessage();
+                }
+//                startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
                 break;
             case 2:
                 startIndexActivity = new Intent(MainActivity.this, ConversionActivity.class);
@@ -200,10 +212,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case 9:
                 startIndexActivity = new Intent(MainActivity.this, WebViewActivity.class);
                 break;
+            case 10:
+                startIndexActivity = new Intent(MainActivity.this, ToucheventActivity.class);
+                break;
             default:
                 startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
         }
-        startActivityForResult(startIndexActivity, 110);
+        if (startIndexActivity != null) {
+            startActivityForResult(startIndexActivity, 110);
+        }
     }
 
     private void testNotification() {

@@ -40,6 +40,7 @@
         <activity android:name=".GestureActivity"></activity>
         <activity android:name=".manager.MediaPlayerAcitivity"></activity>
         <activity android:name=".webview.WebViewActivity"></activity>
+        <activity android:name=".touchevent.ToucheventActivity"></activity>
         <service android:name=".service.TestService"/>
     </application>
 
