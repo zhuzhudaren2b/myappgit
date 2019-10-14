@@ -18,10 +18,24 @@ import java.util.Random;
 public class TestClass {
 
     public static void main(String[] args) {
-        int i =0;
+        initTest();
+    }
+
+    private static void initTest() {
+        //testAbstract();
+
+        testPC();
+
+//        testInsert();
+
+//        FatherAdSon.testSuperMethod();
+
+//        MyExceptionTest.test();
+    }
+
+    private static void testAbstract() {
 
         AbsTest ab = new AbsTest() {
-
             public void insert() {
                 System.out.println("insert ....");
             }
@@ -32,23 +46,6 @@ public class TestClass {
         };
         ab.insert();
         ab.add();
-
-//        testInsert();
-//        initTest();
-
-//        while (true) {
-//            System.out.println("result :"+ (i++));
-//        }
-    }
-
-    private static void initTest() {
-//        testPC();
-
-//        testInsert();
-
-//        FatherAdSon.testSuperMethod();
-
-//        MyExceptionTest.test();
     }
 
     private static void testInsert() {
