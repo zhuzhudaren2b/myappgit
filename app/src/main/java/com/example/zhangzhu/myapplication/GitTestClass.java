@@ -31,4 +31,10 @@ public class GitTestClass {
         // first add something;
     }
 
+    /**
+     *
+     */
+    public void test() {
+//        test cherry-pick
+    }
 }
