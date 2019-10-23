@@ -160,6 +160,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //        new ObserverTestUtil();
 
         //测试反射
+//        try {
+//            Class activityClass = Class.forName("com.example.zhangzhu.myapplication.RecyclerViewTestActivity");
+//            startIndexActivity = new Intent(MainActivity.this, activityClass);
+//        } catch (Exception e) {
+//            e.getMessage();
+//        }
+
 //        new InvokeTestUtil();
 
         //数据结构
@@ -179,14 +186,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         Intent startIndexActivity = null;
         switch(index){
             case 1:
-                try {
-
-                    Class activityClass = Class.forName("com.example.zhangzhu.myapplication.RecyclerViewTestActivity");
-                    startIndexActivity = new Intent(MainActivity.this, activityClass);
-                } catch (Exception e) {
-                    e.getMessage();
-                }
-//                startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
+                startIndexActivity = new Intent(MainActivity.this, RecyclerViewTestActivity.class);
                 break;
             case 2:
                 startIndexActivity = new Intent(MainActivity.this, ConversionActivity.class);
